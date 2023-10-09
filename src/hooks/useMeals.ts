@@ -4,8 +4,9 @@ import { CanceledError } from "axios";
 
 export interface Meal {
   idMeal: string;
-  strMeal : string;
-  strMealThumb: string
+  strMeal: string;
+  strMealThumb: string;
+  strTags: string;
 }
 
 interface FetchMealsResponse {
