@@ -1,27 +1,8 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
 import { Text } from "@chakra-ui/react";
-
-interface Meal {
-  idMeal: string;
-  strMeal: string;
-}
-
-interface FetchMealsResponse {
-  meals: Meal[];
-}
+import useMeals from "../hooks/useMeals";
 
 const MealGrid = () => {
-  const [meals, setMeals] = useState<Meal[]>([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    apiClient
-      .get<FetchMealsResponse>("")
-      .then((res) => setMeals(res.data.meals))
-      .catch((err) => setError(err.message));
-  }, []);
-
+  const { meals, error } = useMeals();
   return (
     <>
       {error && <Text>{error}</Text>}
