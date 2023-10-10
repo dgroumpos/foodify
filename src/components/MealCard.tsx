@@ -7,13 +7,15 @@ interface Props {
 }
 const MealCard = ({ meal }: Props) => {
   if (meal.strTags === null) return null;
-  const tags = meal.strTags.includes(",") ? meal.strTags.split(",") : [meal.strTags];
+  const tags = meal.strTags.includes(",")
+    ? meal.strTags.split(",")
+    : [meal.strTags];
   return (
-    <Card borderRadius={10} overflow="hidden">
+    <Card borderRadius={10} overflow="hidden" width="300px">
       <Image src={meal.strMealThumb} />
       <CardBody>
         <Heading fontSize={"2xl"}>{meal.strMeal}</Heading>
-        <TagList allTags={tags}/>
+        <TagList allTags={tags} />
       </CardBody>
     </Card>
   );
